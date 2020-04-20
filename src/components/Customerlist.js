@@ -52,7 +52,7 @@ const columns = [
 
 return (
     <div>
-      <ReactTable data={customers} defaultPageSize={10}
+      <ReactTable data={customers} defaultPageSize={20}
         columns={columns} filterable={true}/>
 
     </div>
