@@ -5,14 +5,16 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import AddIcon from '@material-ui/icons/Add';
+import EditIcon from '@material-ui/icons/Edit';
 
-export default function AddCustomer(props) {
+export default function EditCustomer(props) {
     
     const[open, setOpen] = useState(false);
     const[customer, setCustomer] = useState({firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: ''});
     
     const handleClickOpen = () => {
+        console.log(props.customer);
+        setCustomer({firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city, phone: props.customer.phone})
         setOpen(true);
     }
 
@@ -25,15 +27,15 @@ export default function AddCustomer(props) {
     }
 
     const handleClose = () => {
-        props.addCustomer(customer);
+        props.updateCustomer(props.customer.links[0].href, customer);
         setOpen(false);
     }
     
     return(
         <div>
-        <Button style={{margin: 10}} variant="contained" startIcon={<AddIcon />} color="primary" onClick={handleClickOpen}>Add new customer</Button>
+        <Button startIcon={<EditIcon />} color="primary" onClick={handleClickOpen}></Button>
         <Dialog open={open} disableBackdropClick={true} disableEscapeKeyDown={true} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">New customer</DialogTitle>
+        <DialogTitle id="form-dialog-title">Edit customer</DialogTitle>
         <DialogContent>
 
         <TextField

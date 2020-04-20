@@ -4,6 +4,8 @@ import 'react-table-v6/react-table.css'
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import DeleteIcon from '@material-ui/icons/Delete';
+import EditCustomer from './EditCustomer';
+import AddCustomer from './AddCustomer';
 
 
 export default function Customerlist(){
@@ -21,6 +23,40 @@ const getCustomers = () => {
     .then(response => response.json())
     .then(res => setCustomers(res.content))
     .catch(err => console.log(err))
+}
+
+const addCustomer = (customer) => {
+  fetch('https://customerrest.herokuapp.com/api/customers',
+  {
+    method: 'POST',
+    headers: {
+      'Content-type' : 'application/json'
+    },
+    body: JSON.stringify(customer)
+  }
+  )
+  .then(_ => getCustomers())
+  .then(_ => {
+    SetMsg('New customer added.');
+    setOpen(true);
+  })
+  .catch(err => console.error(err))
+}
+
+const updateCustomer = (link, customer) => {
+  fetch(link, {
+    method: 'PUT',
+    headers: {
+      'Content-type' : 'application/json'
+    },
+    body: JSON.stringify(customer)
+  })
+  .then(_ => getCustomers())
+  .then(_ => {
+    SetMsg('Customer info updated.');
+    setOpen(true);
+  })
+  .catch(err => console.error(err))
 }
 
 const deleteCustomer = (link) => {
@@ -69,14 +105,22 @@ const columns = [
     accessor: 'city'
   },
   {
-    Cell: row => (<Button  color="secondary" startIcon={<DeleteIcon />}  onClick={() => deleteCustomer(row.original.links[0].href)}></Button>)
+    sortable: false,
+    filterable: false,
+    Cell: row => (<EditCustomer customer={row.original} updateCustomer={updateCustomer} />)
+  },
+  {
+    sortable: false,
+    filterable: false,
+    Cell: row => (<Button  color="secondary" startIcon={<DeleteIcon />} onClick={() => deleteCustomer(row.original.links[0].href)}></Button>)
   },
 ] 
 
 
 return (
     <div>
-      <ReactTable data={customers} defaultPageSize={20}
+      <AddCustomer addCustomer={addCustomer}/>
+      <ReactTable data={customers} defaultPageSize={10}
         columns={columns} filterable={true}/>
 
       <Snackbar

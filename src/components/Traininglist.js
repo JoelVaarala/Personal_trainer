@@ -46,7 +46,7 @@ const columns = [
 
 return (
     <div>
-      <ReactTable data={trainings} defaultPageSize={20}
+      <ReactTable data={trainings} defaultPageSize={10}
         columns={columns} filterable={true}/>
 
     </div>
