@@ -14,7 +14,9 @@ export default function EditCustomer(props) {
     
     const handleClickOpen = () => {
         console.log(props.customer);
-        setCustomer({firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city, phone: props.customer.phone})
+        setCustomer({firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email,
+                     streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city, 
+                     phone: props.customer.phone})
         setOpen(true);
     }
 

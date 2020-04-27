@@ -63,7 +63,7 @@ export default function AddCustomer(props) {
             name="streetaddress"
             value={customer.streetaddress}
             onChange={inputChanged}
-            label="streetaddress"
+            label="Address"
             fullWidth
           />
           <TextField
@@ -73,7 +73,7 @@ export default function AddCustomer(props) {
             name="postcode"
             value={customer.postcode}
             onChange={inputChanged}
-            label="postcode"
+            label="Postcode"
             fullWidth
           />
           <TextField
@@ -83,7 +83,7 @@ export default function AddCustomer(props) {
             name="city"
             value={customer.city}
             onChange={inputChanged}
-            label="city"
+            label="City"
             fullWidth
           />
           <TextField
@@ -93,7 +93,7 @@ export default function AddCustomer(props) {
             name="email"
             value={customer.email}
             onChange={inputChanged}
-            label="email"
+            label="Email"
             fullWidth
           />
           <TextField
@@ -103,7 +103,7 @@ export default function AddCustomer(props) {
             name="phone"
             value={customer.phone}
             onChange={inputChanged}
-            label="phone"
+            label="Phone"
             fullWidth
           />
 

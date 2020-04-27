@@ -6,6 +6,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditCustomer from './EditCustomer';
 import AddCustomer from './AddCustomer';
+import AddTraining from './AddTraining';
 
 
 export default function Customerlist(){
@@ -16,7 +17,7 @@ const[open, setOpen] = useState(false);
 
 useEffect(() => {
   getCustomers();
-},[])
+},[customers])
 
 const getCustomers = () => {
     fetch('https://customerrest.herokuapp.com/api/customers')
@@ -61,7 +62,9 @@ const updateCustomer = (link, customer) => {
 
 const deleteCustomer = (link) => {
   if(window.confirm('Would you like to delete this customer?')){
-    fetch(link, {method: 'DELETE'})
+    fetch(link, {
+      method: 'DELETE',
+    })
     .then(_ => getCustomers())
     .then(_ => {
       SetMsg('Customer deleted.');
@@ -69,6 +72,22 @@ const deleteCustomer = (link) => {
     })
     .catch(err => console.log(err))
   }
+}
+
+const addTraining = (training) => {
+  fetch('https://customerrest.herokuapp.com/api/trainings', {
+    method: 'POST',
+    headers: {
+      'Content-type' : 'application/json'
+    },
+    body: JSON.stringify(training)
+  })
+  .then(_ => getCustomers())
+  .then(_ => {
+    SetMsg('Training added.');
+    setOpen(true);
+  })
+  .catch(err => console.log(err))
 }
 
 const handleClose = () => {
@@ -103,6 +122,11 @@ const columns = [
   {
     Header: 'City',
     accessor: 'city'
+  },
+  {
+    sortable: false,
+    filterable: false,
+    Cell: row => (<AddTraining customerT={row.original.links[0].href} addTraining={addTraining}/>)
   },
   {
     sortable: false,

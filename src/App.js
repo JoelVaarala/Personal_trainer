@@ -22,7 +22,7 @@ function App() {
 
 const Home = () => (
   <div>
-    <h1>Home page for task1</h1>
+    <h1>Home page for task2</h1>
   </div>
 )
 
