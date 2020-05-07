@@ -1,18 +1,18 @@
 import React from 'react';
 import '../App.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import PeopleIcon from '@material-ui/icons/People';
 
 export default function Nav() {
-  
-    const naviStyle = {color: 'white'};
-    const liStyle = {textDecoration: 'none',color: 'white'}
 
-    return(
+    const naviStyle = { color: 'white' };
+    const liStyle = { textDecoration: 'none', color: 'white' }
+
+    return (
         <nav>
-            <h3 style={naviStyle}>Personal trainer</h3>
+            <h2 style={naviStyle}>Personal trainer</h2>
             <ul className="nav-links">
                 <Button variant="contained" startIcon={<PeopleIcon />} color="primary">
                     <Link to='/customers' style={liStyle}>

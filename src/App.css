@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: whitesmoke;
+  background-color: lightgrey;
 }
 
 .App-logo {
@@ -59,6 +59,8 @@ nav{
 .li{
   text-decoration: none;
 }
+
+
 
 
 

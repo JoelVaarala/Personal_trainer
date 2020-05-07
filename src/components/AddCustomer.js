@@ -8,35 +8,35 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import AddIcon from '@material-ui/icons/Add';
 
 export default function AddCustomer(props) {
-    
-    const[open, setOpen] = useState(false);
-    const[customer, setCustomer] = useState({firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: ''});
-    
-    const handleClickOpen = () => {
-        setOpen(true);
-    }
 
-    const handleCancel = () => {
-        setOpen(false);
-    }
+  const [open, setOpen] = useState(false);
+  const [customer, setCustomer] = useState({ firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: '' });
 
-    const inputChanged = (event) => {
-        setCustomer({...customer, [event.target.name]: event.target.value});
-    }
+  const handleClickOpen = () => {
+    setOpen(true);
+  }
 
-    const handleClose = () => {
-        props.addCustomer(customer);
-        setOpen(false);
-    }
-    
-    return(
-        <div>
-        <Button style={{margin: 10}} variant="contained" startIcon={<AddIcon />} color="primary" onClick={handleClickOpen}>Add new customer</Button>
-        <Dialog open={open} disableBackdropClick={true} disableEscapeKeyDown={true} onClose={handleClose} aria-labelledby="form-dialog-title">
+  const handleCancel = () => {
+    setOpen(false);
+  }
+
+  const inputChanged = (event) => {
+    setCustomer({ ...customer, [event.target.name]: event.target.value });
+  }
+
+  const handleClose = () => {
+    props.addCustomer(customer);
+    setOpen(false);
+  }
+
+  return (
+    <div>
+      <Button style={{ margin: 10 }} variant="contained" startIcon={<AddIcon />} color="primary" onClick={handleClickOpen}>Add new customer</Button>
+      <Dialog open={open} disableBackdropClick={true} disableEscapeKeyDown={true} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">New customer</DialogTitle>
         <DialogContent>
 
-        <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="firstname"
@@ -117,6 +117,6 @@ export default function AddCustomer(props) {
           </Button>
         </DialogActions>
       </Dialog>
-        </div>
-    )
+    </div>
+  )
 }
