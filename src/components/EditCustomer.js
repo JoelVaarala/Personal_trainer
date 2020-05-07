@@ -8,37 +8,41 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import EditIcon from '@material-ui/icons/Edit';
 
 export default function EditCustomer(props) {
-    
-    const[open, setOpen] = useState(false);
-    const[customer, setCustomer] = useState({firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: ''});
-    
-    const handleClickOpen = () => {
-        console.log(props.customer);
-        setCustomer({firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email, streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city, phone: props.customer.phone})
-        setOpen(true);
-    }
 
-    const handleCancel = () => {
-        setOpen(false);
-    }
+  const [open, setOpen] = useState(false);
+  const [customer, setCustomer] = useState({ firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: '' });
 
-    const inputChanged = (event) => {
-        setCustomer({...customer, [event.target.name]: event.target.value});
-    }
+  const handleClickOpen = () => {
+    console.log(props.customer);
+    setCustomer({
+      firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email,
+      streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city,
+      phone: props.customer.phone
+    })
+    setOpen(true);
+  }
 
-    const handleClose = () => {
-        props.updateCustomer(props.customer.links[0].href, customer);
-        setOpen(false);
-    }
-    
-    return(
-        <div>
-        <Button startIcon={<EditIcon />} color="primary" onClick={handleClickOpen}></Button>
-        <Dialog open={open} disableBackdropClick={true} disableEscapeKeyDown={true} onClose={handleClose} aria-labelledby="form-dialog-title">
+  const handleCancel = () => {
+    setOpen(false);
+  }
+
+  const inputChanged = (event) => {
+    setCustomer({ ...customer, [event.target.name]: event.target.value });
+  }
+
+  const handleClose = () => {
+    props.updateCustomer(props.customer.links[0].href, customer);
+    setOpen(false);
+  }
+
+  return (
+    <div>
+      <Button startIcon={<EditIcon />} color="primary" onClick={handleClickOpen}></Button>
+      <Dialog open={open} disableBackdropClick={true} disableEscapeKeyDown={true} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Edit customer</DialogTitle>
         <DialogContent>
 
-        <TextField
+          <TextField
             autoFocus
             margin="dense"
             id="firstname"
@@ -119,6 +123,6 @@ export default function EditCustomer(props) {
           </Button>
         </DialogActions>
       </Dialog>
-        </div>
-    )
+    </div>
+  )
 }

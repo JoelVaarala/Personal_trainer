@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: whitesmoke;
+  background-color: lightgrey;
 }
 
 .App-logo {
@@ -52,7 +52,15 @@ nav{
   justify-content: space-around;
   align-items: center;
   list-style: none;
+  text-decoration: none;
+
 }
+
+.li{
+  text-decoration: none;
+}
+
+
 
 
 
