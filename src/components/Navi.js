@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import PeopleIcon from '@material-ui/icons/People';
 import EventNoteIcon from '@material-ui/icons/EventNote';
+import EqualizerIcon from '@material-ui/icons/Equalizer';
 
 export default function Nav() {
 
@@ -28,6 +29,11 @@ export default function Nav() {
                 <Button variant="contained" startIcon={<EventNoteIcon />} color="primary">
                     <Link to='/calendary' style={liStyle}>
                         <li>Calendary</li>
+                    </Link>
+                </Button>
+                <Button variant="contained" startIcon={<EqualizerIcon />} color="primary">
+                    <Link to='/charts' style={liStyle}>
+                        <li>Charts</li>
                     </Link>
                 </Button>
             </ul>
