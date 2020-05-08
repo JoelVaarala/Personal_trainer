@@ -13,7 +13,7 @@ export default function EditCustomer(props) {
   const [customer, setCustomer] = useState({ firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone: '' });
 
   const handleClickOpen = () => {
-    console.log(props.customer);
+    //console.log(props.customer);
     setCustomer({
       firstname: props.customer.firstname, lastname: props.customer.lastname, email: props.customer.email,
       streetaddress: props.customer.streetaddress, postcode: props.customer.postcode, city: props.customer.city,
@@ -34,12 +34,13 @@ export default function EditCustomer(props) {
     props.updateCustomer(props.customer.links[0].href, customer);
     setOpen(false);
   }
-
+//<DialogTitle id="form-dialog-title">Edit customer</DialogTitle>
+let title = "Edit"
   return (
     <div>
       <Button startIcon={<EditIcon />} color="primary" onClick={handleClickOpen}></Button>
       <Dialog open={open} disableBackdropClick={true} disableEscapeKeyDown={true} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Edit customer</DialogTitle>
+      <DialogTitle id="alert-dialog-title">{title ? title : ""}</DialogTitle>
         <DialogContent>
 
           <TextField

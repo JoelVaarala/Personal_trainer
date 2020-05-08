@@ -5,7 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import moment from 'moment-with-locales-es6';
+//import moment from 'moment-with-locales-es6';
 
 
 export default function AddTraining(props) {
