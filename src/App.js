@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Customerlist from './components/Customerlist';
 import Traininglist from './components/Traininglist';
+import Calendary from './components/Calendary';
 import Navi from './components/Navi';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/customers" component={Customerlist} />
           <Route path="/trainings" component={Traininglist} />
+          <Route path="/calendary" component={Calendary} />
         </Switch>
       </div>
     </Router>
@@ -22,7 +24,7 @@ function App() {
 
 const Home = () => (
   <div>
-    <h1>Home page for task2</h1>
+    <h1>Home page for task3</h1>
   </div>
 )
 

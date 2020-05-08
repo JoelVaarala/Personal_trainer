@@ -62,7 +62,8 @@ export default function Customerlist() {
   }
 
   const deleteCustomer = (link) => {
-    console.log(link);
+    //console.log(link);
+    // window.confirm pops out confirmation window, and continues function if true
     if (window.confirm('Would you like to delete this customer?')) {
       fetch(link, {
         method: 'DELETE',
@@ -161,6 +162,7 @@ export default function Customerlist() {
           horizontal: 'left'
         }}
       />
+      <footer style={{backgroundColor: 'navy', color: 'white', textAlign: 'left'}}> @Personal trainer</footer>
     </div>
   );
 }

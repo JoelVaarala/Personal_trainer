@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import PeopleIcon from '@material-ui/icons/People';
+import EventNoteIcon from '@material-ui/icons/EventNote';
 
 export default function Nav() {
 
@@ -22,6 +23,11 @@ export default function Nav() {
                 <Button variant="contained" startIcon={<FitnessCenterIcon />} color="primary">
                     <Link to='/trainings' style={liStyle}>
                         <li>Trainings</li>
+                    </Link>
+                </Button>
+                <Button variant="contained" startIcon={<EventNoteIcon />} color="primary">
+                    <Link to='/calendary' style={liStyle}>
+                        <li>Calendary</li>
                     </Link>
                 </Button>
             </ul>

@@ -57,7 +57,9 @@ export default function Traininglist() {
     },
     {
       Header: 'Date',
+      // When accessor gets something else than string id value is needed
       id: 'dateID',
+      // accessor gets function instead of String and returns wanted value
       accessor: d => {
         return moment(d.date).locale('fi').format('L LT');
       }
@@ -93,6 +95,7 @@ export default function Traininglist() {
           horizontal: 'left'
         }}
       />
+      <footer style={{backgroundColor: 'navy', color: 'white', textAlign: 'left'}}> @Personal trainer</footer>
     </div>
   );
 }
