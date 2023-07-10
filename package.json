@@ -15,11 +15,11 @@
     "@testing-library/user-event": "^7.1.2",
     "moment": "^2.24.0",
     "moment-with-locales-es6": "^1.0.1",
-    "node-sass": "^4.14.0",
+    "node-sass": "^9.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "react-table-v6": "^6.8.6",
     "recharts": "^1.8.5"
   },
